@@ -1,14 +1,14 @@
 import random
 import string
 
-inputOption = int(input("Input from:\n1) File\n2) Enter Message\n"))
+input_option = int(input("Input from:\n1) File\n2) Enter Message\n"))
 
-if inputOption == 1:
-    inputFile = input("File to Input: ")
-    with open(inputFile, 'r') as fr:
-        messagePlain = fr.read()
-elif inputOption == 2:
-    messagePlain = input("Enter Message: ")
+if input_option == 1:
+    input_file = input("File to Input: ")
+    with open(input_file, 'r') as fr:
+        message_plain = fr.read()
+elif input_option == 2:
+    message_plain = input("Enter Message: ")
 
 random.seed(input("Key: "))
 
@@ -16,19 +16,19 @@ characters = ''.join(random.sample(string.printable,len(string.printable)))
 
 option = int(input("1) Encrypt\n2) Decrypt\n"))
 
-messageResult = ""
+message_result = ""
 
 if option == 1:
-    for char in messagePlain:
-        messageResult += characters[string.printable.index(char)]
+    for char in message_plain:
+        message_result += characters[string.printable.index(char)]
 elif option == 2:
-    for char in messagePlain:
-        messageResult += string.printable[characters.index(char)]
+    for char in message_plain:
+        message_result += string.printable[characters.index(char)]
 
-print(messageResult)
+print(message_result)
 
-outputOption = input("Output to File?\n")
+output_option = input("Output to File?\n")
 
-if outputOption == "Yes":
+if output_option == "Yes":
     with open('./scoutput.txt', 'w') as fw:
-        fw.write(messageResult)
+        fw.write(message_result)
