@@ -27,8 +27,8 @@ elif option == 2:
 
 print(message_result)
 
-output_option = input("Output to File?\n")
+output_option = input("Enter name of file to output (leave blank to quit without creating file): ")
 
-if output_option == "Yes":
-    with open('./scoutput.txt', 'w') as fw:
+if len(output_option) > 0:
+    with open(output_option, 'w') as fw:
         fw.write(message_result)
