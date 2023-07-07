@@ -3,14 +3,14 @@
 import random
 import string
 
-input_option = int(input("Input from:\n1) File\n2) Enter Message\n"))
+input_option = int(input("Input from:\n1) File\n2) Enter message\n"))
 
 if input_option == 1:
-    input_file = input("File to Input: ")
+    input_file = input("File to input: ")
     with open(input_file, 'r') as fr:
         message_plain = fr.read()
 elif input_option == 2:
-    message_plain = input("Enter Message: ")
+    message_plain = input("Enter message: ")
 
 random.seed(input("Key: "))
 
@@ -29,7 +29,7 @@ elif option == 2:
 
 print(message_result)
 
-output_option = input("Enter name of file to output (leave blank to quit without creating file): ")
+output_option = input("File to output: ")
 
 if len(output_option) > 0:
     with open(output_option, 'w') as fw:
