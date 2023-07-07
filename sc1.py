@@ -1,21 +1,21 @@
 #!/usr/bin/env python3
 
+import string
+
 message_input = input("Enter Message: ")
 
-characters = ['C', 'Q', 'J', ';', 'l', 'H', '~', 'T', '^', 'R', '&', 'j', 'm', 'v', '1', '?', '!', '5', 't', 'A', '}', 'K', '7', 'i', 'M', '\\', 'a', '%', ':', '3', '#', '*', ',', 'S', 'X', 'b', '.', 'z', 'u', '(', '$', 'D', 's', 'E', 'q', 'Y', 'o', 'r', '{', 'n', 'y', 'V', '>', '0', 'P', '9', ']', ')', 'W', 'h', 'k', 'L', "'", 'x', 'F', 'e', '6', 'N', 'c', 'd', '@', '4', 'g', '-', 'p', '+', 'U', 'w', ' ', '=', 'I', '8', 'f', '<', 'B', '|', '[', '`', '"', 'G', 'Z', 'O', '/', '_', '2']
-
-key = int(input(f"Select Key (-{len(characters) - 1} through {len(characters) - 1}): "))
+key = int(input(f"Select Key (-{len(string.printable) - 1} through {len(string.printable) - 1}): "))
 
 message_output = ""
 
 for char in message_input:
-    if char in characters:
-        displace = characters.index(char) + key
-        if characters.index(char) + key >= len(characters):
-            displace = characters.index(char) + key - len(characters)
-        elif  characters.index(char) + key < 0:
-            displace = characters.index(char) + key + len(characters)
-        message_output += characters[displace]
+    if char in string.printable:
+        displace = string.printable.index(char) + key
+        if string.printable.index(char) + key >= len(string.printable):
+            displace = string.printable.index(char) + key - len(string.printable)
+        elif  string.printable.index(char) + key < 0:
+            displace = string.printable.index(char) + key + len(string.printable)
+        message_output += string.printable[displace]
     else:
         print("Unrecognized Character")
 
