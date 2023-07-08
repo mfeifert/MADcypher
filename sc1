@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import string
+import sys
 
 ### Input
 
@@ -18,16 +19,24 @@ elif input_option == 2:
 key = int(input(f"Select Key (-{len(string.printable) - 1} through {len(string.printable) - 1}): "))
 
 message_output = ""
+abort_check = 0
 
 for char in message_input:
-    shift = string.printable.index(char) + key
-    if string.printable.index(char) + key >= len(string.printable):
-        shift = string.printable.index(char) + key - len(string.printable)
-    elif  string.printable.index(char) + key < 0:
-        shift = string.printable.index(char) + key + len(string.printable)
-    message_output += string.printable[shift]
+    if char in string.printable:
+        shift = string.printable.index(char) + key
+        if string.printable.index(char) + key >= len(string.printable):
+            shift = string.printable.index(char) + key - len(string.printable)
+        elif  string.printable.index(char) + key < 0:
+            shift = string.printable.index(char) + key + len(string.printable)
+        message_output += string.printable[shift]
+    else:
+        print("Invalid character: " + char)
+        abort_check += 1
 
 ### Output
+
+if abort_check > 0:
+    sys.exit()
 
 print(message_output)
 

@@ -2,6 +2,7 @@
 
 import random
 import string
+import sys
 
 ### Input
 
@@ -23,15 +24,22 @@ characters = ''.join(random.sample(string.printable,len(string.printable)))
 crypt_option = int(input("1) Encrypt\n2) Decrypt\n"))
 
 message_output = ""
+abort_check = 0
 
-if crypt_option == 1:
-    for char in message_input:
-        message_output += characters[string.printable.index(char)]
-elif crypt_option == 2:
-    for char in message_input:
-        message_output += string.printable[characters.index(char)]
+for char in message_input:
+    if char in string.printable:
+        if crypt_option == 1:
+            message_output += characters[string.printable.index(char)]
+        elif crypt_option == 2:
+            message_output += string.printable[characters.index(char)]
+    else:
+        print("Invalid character: " + char)
+        abort_check += 1
 
 ### Output
+
+if abort_check > 0:
+    sys.exit()
 
 print(message_output)
 
