@@ -3,6 +3,8 @@
 import random
 import string
 
+### Input
+
 input_option = int(input("Input from:\n1) File\n2) Enter message\n"))
 
 if input_option == 1:
@@ -11,6 +13,8 @@ if input_option == 1:
         message_input = fr.read()
 elif input_option == 2:
     message_input = input("Enter message: ")
+
+### Encryption
 
 random.seed(input("Key: "))
 
@@ -26,6 +30,8 @@ if crypt_option == 1:
 elif crypt_option == 2:
     for char in message_input:
         message_output += string.printable[characters.index(char)]
+
+### Output
 
 print(message_output)
 

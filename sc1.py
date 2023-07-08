@@ -2,6 +2,8 @@
 
 import string
 
+### Input
+
 input_option = int(input("Input from:\n1) File\n2) Enter message\n"))
 
 if input_option == 1:
@@ -10,6 +12,8 @@ if input_option == 1:
         message_input = fr.read()
 elif input_option == 2:
     message_input = input("Enter message: ")
+
+### Encryption
 
 key = int(input(f"Select Key (-{len(string.printable) - 1} through {len(string.printable) - 1}): "))
 
@@ -22,6 +26,8 @@ for char in message_input:
     elif  string.printable.index(char) + key < 0:
         shift = string.printable.index(char) + key + len(string.printable)
     message_output += string.printable[shift]
+
+### Output
 
 print(message_output)
 
