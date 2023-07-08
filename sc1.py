@@ -9,14 +9,11 @@ key = int(input(f"Select Key (-{len(string.printable) - 1} through {len(string.p
 message_output = ""
 
 for char in message_input:
-    if char in string.printable:
-        displace = string.printable.index(char) + key
-        if string.printable.index(char) + key >= len(string.printable):
-            displace = string.printable.index(char) + key - len(string.printable)
-        elif  string.printable.index(char) + key < 0:
-            displace = string.printable.index(char) + key + len(string.printable)
-        message_output += string.printable[displace]
-    else:
-        print("Unrecognized Character")
+    displace = string.printable.index(char) + key
+    if string.printable.index(char) + key >= len(string.printable):
+        displace = string.printable.index(char) + key - len(string.printable)
+    elif  string.printable.index(char) + key < 0:
+        displace = string.printable.index(char) + key + len(string.printable)
+    message_output += string.printable[displace]
 
 print(message_output)
