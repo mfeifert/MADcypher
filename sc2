@@ -19,7 +19,7 @@ elif input_option == 2:
 
 random.seed(input("Key: "))
 
-characters = ''.join(random.sample(string.printable,len(string.printable)))
+characters_scrambled = ''.join(random.sample(string.printable,len(string.printable)))
 
 crypt_option = int(input("1) Encrypt\n2) Decrypt\n"))
 
@@ -29,9 +29,9 @@ abort_check = 0
 for char in message_input:
     if char in string.printable:
         if crypt_option == 1:
-            message_output += characters[string.printable.index(char)]
+            message_output += characters_scrambled[string.printable.index(char)]
         elif crypt_option == 2:
-            message_output += string.printable[characters.index(char)]
+            message_output += string.printable[characters_scrambled.index(char)]
     else:
         print("Invalid character: " + char)
         abort_check += 1
